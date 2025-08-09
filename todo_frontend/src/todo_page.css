@@ -1,0 +1,211 @@
+:root {
+  /* Figma color tokens mapped to CSS vars */
+  --white: #ffffff;
+  --lavender: #d6d7ef;
+  --muted-purple: #9395d3;
+  --mid-grey: #8b8787;
+  --yellow: #ffd60a;
+  --green: #34c759;
+  --border-lavender: #b3b7ee;
+  --shadow: 0 4px 4px 0 rgba(0,0,0,0.18);
+  /* Typography */
+  --font-jost: 'Jost', 'Segoe UI', Arial, sans-serif;
+}
+
+/* Reset & page bg */
+body, html {
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+  color: var(--muted-purple);
+  font-family: var(--font-jost);
+  width: 100vw;
+  min-height: 100vh;
+}
+.todo-page {
+  display: flex;
+  flex-direction: column;
+  width: 414px;
+  min-height: 896px;
+  margin: 0 auto; /* Center for demo */
+  background: var(--lavender);
+  position: relative;
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+.status-bar {
+  height: 44px;
+  width: 100%;
+  /* Use placeholder bg as icons are not available inline */
+  background: linear-gradient(90deg, #d6d7ef 60%, #b3b7ee 100%);
+}
+
+.app-bar {
+  background: var(--muted-purple);
+  height: 118px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  padding: 0 32px 14px 32px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+}
+.app-bar__calendar {
+  width: 60px; height: 60px;
+  background: url('https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/62f55766-91f6-49e6-9934-586acd76dd3d') no-repeat center/contain;
+  position: absolute; right: 18px; top: 17px;
+}
+.app-bar__title {
+  font-family: var(--font-jost);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 34px;
+  color: var(--white);
+  letter-spacing: 0;
+  margin-top: 60px;
+}
+
+/* NAV BAR (Tabs + icons) */
+.nav-bar {
+  width: 100%;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  margin-bottom: 10px;
+  border-radius: 0 0 21px 21px;
+  box-shadow: 0 2px 8px #b3b7ee23;
+  gap: 16px;
+  padding: 0 32px;
+}
+.nav-bar__tab {
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  font-family: var(--font-jost);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+.nav-bar__tab.active .nav-bar__text {
+  color: var(--muted-purple);
+}
+.nav-bar__text.inactive {
+  color: var(--mid-grey) !important;
+}
+.nav-bar__icon {
+  width: 30px;
+  height: 30px;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.nav-bar__icon--playlist {
+  background-image: url('https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/a23ebc39-fd24-4242-9b59-ce325d4044f6');
+}
+.nav-bar__icon--tick {
+  background-image: url('https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/29c79191-0ca8-43fc-be66-d34401647090');
+}
+
+/* TODOS LIST */
+.todos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 400px;
+  align-self: center;
+  margin-top: 16px;
+}
+.todo-card {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 82px;
+  padding: 0 24px;
+}
+.todo-card__content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+.todo-card__title {
+  font-family: var(--font-jost);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19px;
+  color: var(--muted-purple);
+}
+.todo-card__subtitle {
+  font-family: var(--font-jost);
+  font-size: 10px;
+  font-weight: 400;
+  color: #000000;
+  margin-top: 2px;
+  line-height: 14px;
+}
+
+.todo-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon-btn {
+  width: 25px; height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  padding: 0;
+  transition: background 0.1s;
+}
+.icon-btn.check {
+  background: url('https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/e41ba20b-4b28-4fc7-9ef6-43ed2b6e697f') no-repeat center/24px 24px;
+}
+.icon-btn.trash {
+  background: url('https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/055c81ed-1390-4dd3-9913-9508fce51263') no-repeat center/24px 24px;
+}
+.icon-btn.pencil {
+  background: url('https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6168f4c7-5bef-4645-b121-1b511598feb0') no-repeat center/24px 24px;
+}
+
+/* FLOATING ADD BUTTON */
+.add-todo-btn {
+  position: fixed;
+  bottom: 36px;
+  right: calc((100vw - 414px)/2 + 32px);
+  width: 70px; height: 70px;
+  border-radius: 35px;
+  background: var(--muted-purple);
+  box-shadow: var(--shadow);
+  border: none;
+  z-index: 5;
+  background-image: url('https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/35860178-878a-4bde-b721-86e796d3cb2d');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 41px 46px;
+  cursor: pointer;
+}
+
+@media (max-width: 414px) {
+  .todo-page {
+    width: 100vw;
+    min-width: 100vw;
+  }
+  .todos-list {
+    width: 96vw;
+  }
+  .add-todo-btn {
+    right: 24px;
+  }
+}

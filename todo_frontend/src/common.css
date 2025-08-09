@@ -1,0 +1,47 @@
+:root {
+  --color-white: #ffffff;
+  --color-lavender: #d6d7ef;
+  --color-muted-purple: #9395d3;
+  --color-mid-grey: #8b8787;
+  --color-yellow: #ffd60a;
+  --color-green: #34c759;
+  --color-black: #000000;
+
+  --font-jost: 'Jost', 'Segoe UI', Arial, sans-serif;
+  --shadow-ds: 0 4px 4px 0 rgba(0,0,0,0.14);
+
+  --ds-border-radius: 15px;
+  --ds-spacing-xs: 4px;
+  --ds-spacing-sm: 8px;
+  --ds-spacing-md: 16px;
+  --ds-spacing-lg: 24px;
+}
+
+/* Typography Styles */
+.typo-title {
+  font-family: var(--font-jost);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 34px;
+  color: var(--color-white);
+}
+.typo-subtitle {
+  font-family: var(--font-jost);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-muted-purple);
+}
+.typo-meta {
+  font-family: var(--font-jost);
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--color-mid-grey);
+}
+
+/* Utility classes as needed */
+.ds-shadow {
+  box-shadow: var(--shadow-ds);
+}
+.ds-round {
+  border-radius: var(--ds-border-radius);
+}
